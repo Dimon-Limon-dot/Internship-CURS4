@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeloRaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Departament">
+    <Key>
+      <PropertyRef Name="NumDep" />
+    </Key>
+    <Property Name="NumDep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="28" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Product__NumDep__36B12243" FromRole="Departament" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="CodeMaterial" />
+    </Key>
+    <Property Name="CodeMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PriceMaterial" Type="Int32" Nullable="false" />
+    <Property Name="NumUnit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__Material__NumUni__31EC6D26" FromRole="Material" ToRole="Unit" />
+    <NavigationProperty Name="MaterialCard" Relationship="Self.FK__MaterialC__CodeM__32E0915F" FromRole="Material" ToRole="MaterialCard" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="CodeOperation" />
+    </Key>
+    <Property Name="CodeOperation" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="JobCard" Relationship="Self.FK__JobCard__CodeOpe__398D8EEE" FromRole="Operation" ToRole="JobCard" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="CodePost" />
+    </Key>
+    <Property Name="CodePost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamePost" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalaryPerHours" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="JobCard" Relationship="Self.FK__JobCard__CodePos__37A5467C" FromRole="Post" ToRole="JobCard" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__CodePost__38996AB5" FromRole="Post" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="NumPP" />
+      <PropertyRef Name="DateInsert" />
+    </Key>
+    <Property Name="NumPP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateInsert" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CodeProduct" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="NumContract" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Price__CodeProdu__35BCFE0A" FromRole="Price" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="CodeProduct" />
+    </Key>
+    <Property Name="CodeProduct" Type="Int32" Nullable="false" />
+    <Property Name="CodeOrg" Type="Int32" Nullable="false" />
+    <Property Name="CodeCharac" Type="Int32" Nullable="false" />
+    <Property Name="SerialNum" Type="Int32" Nullable="false" />
+    <Property Name="NameProduct" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumDep" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departament" Relationship="Self.FK__Product__NumDep__36B12243" FromRole="Product" ToRole="Departament" />
+    <NavigationProperty Name="Price" Relationship="Self.FK__Price__CodeProdu__35BCFE0A" FromRole="Product" ToRole="Price" />
+    <NavigationProperty Name="JobCard" Relationship="Self.FK__JobCard__CodePro__34C8D9D1" FromRole="Product" ToRole="JobCard" />
+    <NavigationProperty Name="MaterialCard" Relationship="Self.FK__MaterialC__CodeP__33D4B598" FromRole="Product" ToRole="MaterialCard" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="NumUnit" />
+    </Key>
+    <Property Name="NumUnit" Type="Int32" Nullable="false" />
+    <Property Name="NameUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK__Material__NumUni__31EC6D26" FromRole="Unit" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="JobCard">
+    <Key>
+      <PropertyRef Name="CodeProduct" />
+      <PropertyRef Name="CodePost" />
+      <PropertyRef Name="CodeOperation" />
+      <PropertyRef Name="OperatonOrder" />
+      <PropertyRef Name="ElapsedTime" />
+    </Key>
+    <Property Name="CodeProduct" Type="Int32" Nullable="false" />
+    <Property Name="CodePost" Type="Int32" Nullable="false" />
+    <Property Name="CodeOperation" Type="Int32" Nullable="false" />
+    <Property Name="OperatonOrder" Type="Int32" Nullable="false" />
+    <Property Name="ElapsedTime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK__JobCard__CodeOpe__398D8EEE" FromRole="JobCard" ToRole="Operation" />
+    <NavigationProperty Name="Post" Relationship="Self.FK__JobCard__CodePos__37A5467C" FromRole="JobCard" ToRole="Post" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__JobCard__CodePro__34C8D9D1" FromRole="JobCard" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="MaterialCard">
+    <Key>
+      <PropertyRef Name="CodeMaterial" />
+      <PropertyRef Name="CodeProduct" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="CodeMaterial" Type="Int32" Nullable="false" />
+    <Property Name="CodeProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK__MaterialC__CodeM__32E0915F" FromRole="MaterialCard" ToRole="Material" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__MaterialC__CodeP__33D4B598" FromRole="MaterialCard" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Login" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="CodePost" />
+    </Key>
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodePost" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Post" Relationship="Self.FK__Users__CodePost__38996AB5" FromRole="Users" ToRole="Post" />
+  </EntityType>
+  <Association Name="FK__Product__NumDep__36B12243">
+    <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departament">
+        <PropertyRef Name="NumDep" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="NumDep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Material__NumUni__31EC6D26">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="NumUnit" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="NumUnit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MaterialC__CodeM__32E0915F">
+    <End Role="Material" Type="Self.Material" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialCard" Type="Self.MaterialCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="CodeMaterial" />
+      </Principal>
+      <Dependent Role="MaterialCard">
+        <PropertyRef Name="CodeMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JobCard__CodeOpe__398D8EEE">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobCard" Type="Self.JobCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="CodeOperation" />
+      </Principal>
+      <Dependent Role="JobCard">
+        <PropertyRef Name="CodeOperation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JobCard__CodePos__37A5467C">
+    <End Role="Post" Type="Self.Post" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobCard" Type="Self.JobCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="CodePost" />
+      </Principal>
+      <Dependent Role="JobCard">
+        <PropertyRef Name="CodePost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__CodePost__38996AB5">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="CodePost" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CodePost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Price__CodeProdu__35BCFE0A">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Price" Type="Self.Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="CodeProduct" />
+      </Principal>
+      <Dependent Role="Price">
+        <PropertyRef Name="CodeProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JobCard__CodePro__34C8D9D1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobCard" Type="Self.JobCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="CodeProduct" />
+      </Principal>
+      <Dependent Role="JobCard">
+        <PropertyRef Name="CodeProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MaterialC__CodeP__33D4B598">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialCard" Type="Self.MaterialCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="CodeProduct" />
+      </Principal>
+      <Dependent Role="MaterialCard">
+        <PropertyRef Name="CodeProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VeloRaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departament" EntityType="Self.Departament" />
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" />
+    <EntitySet Name="Post" EntityType="Self.Post" />
+    <EntitySet Name="Price" EntityType="Self.Price" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" />
+    <EntitySet Name="JobCard" EntityType="Self.JobCard" />
+    <EntitySet Name="MaterialCard" EntityType="Self.MaterialCard" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Product__NumDep__36B12243" Association="Self.FK__Product__NumDep__36B12243">
+      <End Role="Departament" EntitySet="Departament" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Material__NumUni__31EC6D26" Association="Self.FK__Material__NumUni__31EC6D26">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MaterialC__CodeM__32E0915F" Association="Self.FK__MaterialC__CodeM__32E0915F">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="MaterialCard" EntitySet="MaterialCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JobCard__CodeOpe__398D8EEE" Association="Self.FK__JobCard__CodeOpe__398D8EEE">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="JobCard" EntitySet="JobCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JobCard__CodePos__37A5467C" Association="Self.FK__JobCard__CodePos__37A5467C">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="JobCard" EntitySet="JobCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__CodePost__38996AB5" Association="Self.FK__Users__CodePost__38996AB5">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Price__CodeProdu__35BCFE0A" Association="Self.FK__Price__CodeProdu__35BCFE0A">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Price" EntitySet="Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JobCard__CodePro__34C8D9D1" Association="Self.FK__JobCard__CodePro__34C8D9D1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="JobCard" EntitySet="JobCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MaterialC__CodeP__33D4B598" Association="Self.FK__MaterialC__CodeP__33D4B598">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="MaterialCard" EntitySet="MaterialCard" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

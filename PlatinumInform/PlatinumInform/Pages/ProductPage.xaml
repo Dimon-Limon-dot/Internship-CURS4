@@ -1,0 +1,82 @@
+﻿<Page x:Class="PlatinumInform.Pages.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PlatinumInform.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Изделия" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="641*"/>
+            <ColumnDefinition Width="159*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="186*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Изделие" FontSize="17" Width="70" Margin="7"/>
+                <TextBox x:Name="tbSearch" FontSize="17" Width="190" Margin="7" TextChanged="tbSearch_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Цех" FontSize="17" Width="30" Margin="7"/>
+                <ComboBox x:Name="cbDep" FontSize="17" Width="230" Margin="7" SelectionChanged="cbDep_SelectionChanged" DisplayMemberPath="Name"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="lwProduct" Grid.Row="1" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" HorizontalAlignment="Left" Width="490"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid Width="470">
+                            <StackPanel Orientation="Horizontal">
+                                <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                                    <Image Width="160" Source="{Binding Photo}"/>
+                                </Border>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Код изделия" FontSize="14" Width="120" Margin="5"/>
+                                        <TextBlock x:Name="tbCode" Text="{Binding CodeProduct}" FontSize="14" Width="220" Margin="5"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Децимальный №" FontSize="14" Width="120" Margin="5"/>
+                                        <TextBlock x:Name="tbDecNum" FontSize="14" Width="220" Margin="5">
+                                            <Run Text="{Binding CodeOrg}"/>
+                                            <Run Text="{Binding CodeCharac}"/>
+                                            <Run Text="{Binding SerialNum}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Наименование" FontSize="14" Width="120" Margin="5"/>
+                                        <TextBlock x:Name="tbName" Text="{Binding NameProduct}" FontSize="14" Width="220" Margin="5"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Цех" FontSize="14" Width="120" Margin="5"/>
+                                        <TextBlock x:Name="tbManuf" Text="{Binding Departament.Name}" FontSize="14" Width="220" Margin="5"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+            <Button x:Name="btnAdd" Content="Добавить" FontSize="17" Height="30" Margin="5" Click="btnAdd_Click"/>
+            <Button x:Name="btnEdit" Content="Изменить" FontSize="17" Height="30" Margin="5" Click="btnEdit_Click"/>
+            <Button x:Name="btnDel" Content="Удалить" FontSize="17" Height="30" Margin="5" Click="btnDel_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+            <Button x:Name="btnReset" Content="Сброс" FontSize="17" Height="30" Margin="5" Click="btnReset_Click"/>
+            <Button x:Name="btnBack" Content="Назад" FontSize="17" Height="30" Margin="5" Click="btnBack_Click"/>
+        </StackPanel>
+     </Grid>
+</Page>

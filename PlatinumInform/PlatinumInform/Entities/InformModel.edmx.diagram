@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c57ace769fc4eefa72bfee6f6726a63" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="RatepInformModel.Departament" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.JobCard" Width="1.5" PointX="8.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Material" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.MaterialCard" Width="1.5" PointX="5.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Operation" Width="1.5" PointX="6" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Post" Width="1.5" PointX="7.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Price" Width="1.5" PointX="0.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Product" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.sysdiagrams" Width="1.5" PointX="10.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Unit" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RatepInformModel.Users" Width="1.5" PointX="10.625" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="RatepInformModel.FK__Product__NumDep__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__JobCard__CodeOpe__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__JobCard__CodePos__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__JobCard__CodePro__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__Material__NumUni__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__MaterialC__CodeM__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__MaterialC__CodeP__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__Users__CodePost__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="RatepInformModel.FK__Price__CodeProdu__38996AB5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

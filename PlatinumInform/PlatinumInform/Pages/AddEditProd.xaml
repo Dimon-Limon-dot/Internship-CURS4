@@ -1,0 +1,46 @@
+﻿<Page x:Class="PlatinumInform.Pages.AddEditProd"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PlatinumInform.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Код организации" Width="180" Margin="5" FontSize="19"/>
+                    <TextBox x:Name="tbOrganization" Width="240" Margin="5" FontSize="19" PreviewTextInput="tbOrganization_PreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Код характеристики" Width="180" Margin="5" FontSize="19"/>
+                    <TextBox x:Name="tbCharacteristic" Width="240" Margin="5" FontSize="19" PreviewTextInput="tbOrganization_PreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="№ по порядку" Width="180" Margin="5" FontSize="19"/>
+                    <TextBox x:Name="tbNumPP" Width="240" Margin="5" FontSize="19" PreviewTextInput="tbOrganization_PreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Наименование" Width="180" Margin="5" FontSize="19"/>
+                    <TextBox x:Name="tbDetail" Width="240" Margin="5" FontSize="19" PreviewTextInput="tbDetail_PreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Цех" Width="180" Margin="5" FontSize="19"/>
+                    <ComboBox x:Name="cbDepartament" Width="240" Margin="5" FontSize="19" DisplayMemberPath="Name"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btnSave" Content="Сохранить" Width="210" FontSize="22" Margin="5" Click="btnSave_Click"/>
+                    <Button x:Name="btnCancel" Content="Назад" Width="210" FontSize="22" Margin="5" Click="btnCancel_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0 0 0">
+                <Border BorderBrush="Black" BorderThickness="1" Width="200" Height="150">
+                    <Image x:Name="imgPhoto"/>
+                </Border>
+                <Button x:Name="btnLoad" Content="Загрузить" FontSize="22" Margin="5" Click="btnLoad_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

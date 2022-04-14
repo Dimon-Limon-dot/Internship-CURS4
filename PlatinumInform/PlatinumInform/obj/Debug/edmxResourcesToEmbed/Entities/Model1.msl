@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище VeloRaModelContainer" CdmEntityContainer="VeloRaEntities">
+    <EntitySetMapping Name="Departament">
+      <EntityTypeMapping TypeName="VeloRaModel.Departament">
+        <MappingFragment StoreEntitySet="Departament">
+          <ScalarProperty Name="NumDep" ColumnName="NumDep" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="VeloRaModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="CodeMaterial" ColumnName="CodeMaterial" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PriceMaterial" ColumnName="PriceMaterial" />
+          <ScalarProperty Name="NumUnit" ColumnName="NumUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="VeloRaModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="CodeOperation" ColumnName="CodeOperation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="VeloRaModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="CodePost" ColumnName="CodePost" />
+          <ScalarProperty Name="NamePost" ColumnName="NamePost" />
+          <ScalarProperty Name="SalaryPerHours" ColumnName="SalaryPerHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Price">
+      <EntityTypeMapping TypeName="VeloRaModel.Price">
+        <MappingFragment StoreEntitySet="Price">
+          <ScalarProperty Name="NumPP" ColumnName="NumPP" />
+          <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+          <ScalarProperty Name="CodeProduct" ColumnName="CodeProduct" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="NumContract" ColumnName="NumContract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="VeloRaModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="CodeProduct" ColumnName="CodeProduct" />
+          <ScalarProperty Name="CodeOrg" ColumnName="CodeOrg" />
+          <ScalarProperty Name="CodeCharac" ColumnName="CodeCharac" />
+          <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="NumDep" ColumnName="NumDep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="VeloRaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="VeloRaModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="NumUnit" ColumnName="NumUnit" />
+          <ScalarProperty Name="NameUnit" ColumnName="NameUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCard">
+      <EntityTypeMapping TypeName="VeloRaModel.JobCard">
+        <MappingFragment StoreEntitySet="JobCard">
+          <ScalarProperty Name="CodeProduct" ColumnName="CodeProduct" />
+          <ScalarProperty Name="CodePost" ColumnName="CodePost" />
+          <ScalarProperty Name="CodeOperation" ColumnName="CodeOperation" />
+          <ScalarProperty Name="OperatonOrder" ColumnName="OperatonOrder" />
+          <ScalarProperty Name="ElapsedTime" ColumnName="ElapsedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialCard">
+      <EntityTypeMapping TypeName="VeloRaModel.MaterialCard">
+        <MappingFragment StoreEntitySet="MaterialCard">
+          <ScalarProperty Name="CodeMaterial" ColumnName="CodeMaterial" />
+          <ScalarProperty Name="CodeProduct" ColumnName="CodeProduct" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="VeloRaModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CodePost" ColumnName="CodePost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
